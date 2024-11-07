@@ -94,14 +94,14 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3MzA5OTY5MjYsImV4cCI6MTczM
   "categoryId": 1
 }
 
-### Récupération des catégories
+### AllCategories
 GET http://localhost:8083/api/categories
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3MzA5OTY5MjYsImV4cCI6MTczMDk5ODEyNiwiZW1haWwiOiJEdXBvbnQuZG9lQGV4YW1wbGUuY29tIn0.2GqAQES-PFfrv-9hqytwbI6LcbGbUEoxwNVf8EmiUW_3lGwLUOwIX0LH9UMM7wTD
 
 
-### Ajout d'une catégorie
+### Create category
 POST http://localhost:8083/api/category
 Content-Type: application/json
 Accept: application/json
