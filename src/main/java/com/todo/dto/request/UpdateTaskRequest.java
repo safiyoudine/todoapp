@@ -1,11 +1,10 @@
-package com.todo.dto.response;
+package com.todo.dto.request;
 
 import com.todo.enums.TaskStatus;
 
 import java.util.Date;
 
-public class TaskDto {
-    private Long id;
+public class UpdateTaskRequest {
 
     private String title;
 
@@ -15,21 +14,8 @@ public class TaskDto {
 
     private TaskStatus taskStatus;
 
-    private Long userId;
-
-    private String name;
-
     private Long categoryId;
 
-    private String categoryLabel;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -63,21 +49,6 @@ public class TaskDto {
         this.taskStatus = taskStatus;
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Long getCategoryId() {
         return categoryId;
@@ -87,11 +58,4 @@ public class TaskDto {
         this.categoryId = categoryId;
     }
 
-    public String getCategoryLabel() {
-        return categoryLabel;
-    }
-
-    public void setCategoryLabel(String categoryLabel) {
-        this.categoryLabel = categoryLabel;
-    }
 }

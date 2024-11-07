@@ -2,6 +2,7 @@ package com.todo.controller.task;
 
 import com.todo.dto.request.StatusUpdateRequest;
 import com.todo.dto.request.TaskRequest;
+import com.todo.dto.request.UpdateTaskRequest;
 import com.todo.dto.response.TaskDto;
 import com.todo.service.task.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +53,8 @@ public class TaskController {
     }
 
     @PutMapping("/task/{taskId}")
-    public ResponseEntity<?> updateTask(@PathVariable("taskId") Long taskId, @RequestBody TaskDto taskDto) {
-        TaskDto updateTask = taskService.updateTask(taskId, taskDto);
+    public ResponseEntity<?> updateTask(@PathVariable("taskId") Long taskId, @RequestBody UpdateTaskRequest updateTaskRequest) {
+        TaskDto updateTask = taskService.updateTask(taskId, updateTaskRequest);
         if (updateTask == null) {
             return ResponseEntity.notFound().build();
         }

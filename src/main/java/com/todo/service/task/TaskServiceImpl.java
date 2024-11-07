@@ -1,9 +1,10 @@
 package com.todo.service.task;
 
 import com.todo.dto.request.TaskRequest;
+import com.todo.dto.request.UpdateTaskRequest;
+import com.todo.dto.response.TaskDto;
 import com.todo.entity.Category;
 import com.todo.entity.Task;
-import com.todo.dto.response.TaskDto;
 import com.todo.entity.User;
 import com.todo.enums.TaskStatus;
 import com.todo.exception.TaskNotFoundException;
@@ -74,7 +75,6 @@ public class TaskServiceImpl implements TaskService{
     public List<TaskDto> getTasksByUserId(Long id) {
         List<Task> tasks = taskRepository.findAllByUserId(id);
 
-        // If tasks is null or empty, return an empty list
         if (tasks == null || tasks.isEmpty()) {
             return Collections.emptyList();
         }
@@ -83,7 +83,6 @@ public class TaskServiceImpl implements TaskService{
                 .map(TaskMapper::getTaskDto)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     public void deleteTask(Long id) {
@@ -100,27 +99,23 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public TaskDto updateTask(Long id, TaskDto taskDto) {
+    public TaskDto updateTask(Long id, UpdateTaskRequest updateTaskRequest) {
         Optional<Task> optionalTask = taskRepository.findById(id);
-        Optional<User> optionalUser = userRepository.findById(taskDto.getUserId());
 
-        if (optionalTask.isPresent() && optionalUser.isPresent()) {
+        if (optionalTask.isPresent() ) {
             Task existingTask = optionalTask.get();
 
-            if (taskDto.getTitle() != null) {
-                existingTask.setTitle(taskDto.getTitle());
+            if (updateTaskRequest.getTitle() != null) {
+                existingTask.setTitle(updateTaskRequest.getTitle());
             }
-            if (taskDto.getDescription() != null) {
-                existingTask.setDescription(taskDto.getDescription());
+            if (updateTaskRequest.getDescription() != null) {
+                existingTask.setDescription(updateTaskRequest.getDescription());
             }
-            if (taskDto.getDueDate() != null) {
-                existingTask.setDueDate(taskDto.getDueDate());
+            if (updateTaskRequest.getDueDate() != null) {
+                existingTask.setDueDate(updateTaskRequest.getDueDate());
             }
-            if (taskDto.getTaskStatus() != null) {
-                existingTask.setTaskStatus(mapStringToTaskStatus(String.valueOf(taskDto.getTaskStatus())));
-            }
-            if (taskDto.getUserId() != null) {
-                existingTask.setUser(optionalUser.get());
+            if (updateTaskRequest.getTaskStatus() != null) {
+                existingTask.setTaskStatus(mapStringToTaskStatus(String.valueOf(updateTaskRequest.getTaskStatus())));
             }
 
             Task updatedTask = taskRepository.save(existingTask);

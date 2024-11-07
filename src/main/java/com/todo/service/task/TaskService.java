@@ -1,6 +1,7 @@
 package com.todo.service.task;
 
 import com.todo.dto.request.TaskRequest;
+import com.todo.dto.request.UpdateTaskRequest;
 import com.todo.dto.response.TaskDto;
 import com.todo.enums.TaskStatus;
 import org.springframework.data.domain.Page;
@@ -19,7 +20,7 @@ public interface TaskService {
 
     TaskDto getTaskById(Long id);
 
-    TaskDto updateTask(Long id,TaskDto taskDto);
+    TaskDto updateTask(Long id, UpdateTaskRequest updateTaskRequest);
 
     TaskDto updateTaskStatus(Long taskId, TaskStatus status);
 

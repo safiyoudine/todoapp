@@ -1,8 +1,8 @@
 package com.todo.service.auth;
 
-import com.todo.entity.User;
 import com.todo.dto.request.SignupRequest;
 import com.todo.dto.response.UserDto;
+import com.todo.entity.User;
 import com.todo.mapper.UserMapper;
 import com.todo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

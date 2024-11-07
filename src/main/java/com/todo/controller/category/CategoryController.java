@@ -1,13 +1,8 @@
 package com.todo.controller.category;
 
 import com.todo.dto.request.CategoryRequest;
-import com.todo.dto.request.TaskRequest;
 import com.todo.dto.response.CategoryDto;
-import com.todo.dto.response.TaskDto;
 import com.todo.service.category.CategoryService;
-import com.todo.service.user.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

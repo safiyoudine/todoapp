@@ -5,8 +5,6 @@ import com.todo.dto.request.AuthRequest;
 import com.todo.dto.request.SignupRequest;
 import com.todo.dto.response.AuthDto;
 import com.todo.dto.response.UserDto;
-import com.todo.entity.User;
-import com.todo.repository.UserRepository;
 import com.todo.service.auth.AuthService;
 import com.todo.service.user.CustomUserDetails;
 import com.todo.service.user.CustomUserDetailsService;

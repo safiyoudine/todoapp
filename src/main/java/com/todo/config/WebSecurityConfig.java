@@ -23,7 +23,6 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -42,11 +41,9 @@ public class WebSecurityConfig {
                         CorsConfiguration cfg = new CorsConfiguration();
 
                         cfg.setAllowedOrigins(Arrays.asList(
-
-                                        "http://localhost:3000",
-                                        "http://localhost:4200"
-                                )
-                        );
+                                "http://localhost:3000",
+                                "http://localhost:4200"
+                        ));
                         //cfg.setAllowedMethods(Arrays.asList("GET", "POST","DELETE","PUT"));
                         cfg.setAllowedMethods(Collections.singletonList("*"));
                         cfg.setAllowCredentials(true);
